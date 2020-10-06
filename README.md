@@ -18,3 +18,10 @@ inside the projects directory run wajoin.py with the link to the group you would
 # Run the tool with the link of the group you would like to join.
 python3 wajoin.py https://chat.whatsapp.com/GfDjd5847fjgKJSHRK749f
 ```
+Then a Browser window will appear with a QR code for WhatsApp Web. Scan the link with your phone and the script should start.
+
+## Languages
+Currently the code only supports English and Hebrew.
+Support for more countries should be implemented.
+Even better will be to implement the functionality without relying on the 'Join' text of the button.
+I will happily accept contributions :smile:
