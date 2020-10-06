@@ -18,7 +18,7 @@ def try_link(driver, link):
     while True:
         if (datetime.now() - initial_time).seconds > 20:
             return False
-        join_group_buttons = driver.find_elements_by_xpath("//*[contains(text(), 'הצטרף')]")
+        join_group_buttons = driver.find_elements_by_xpath("//*[contains(text(), 'הצטרף') or contains(text(), 'join') or contains(text(), 'Join')]")
         if join_group_buttons:
             click.echo('V')
             for join_group_button in join_group_buttons:
