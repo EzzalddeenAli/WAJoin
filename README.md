@@ -4,7 +4,7 @@ WAJoin will let you join full WhatsApp groups by waiting for the exact moment an
 WAJoin works with browser automation using Selenium.
 
 ## Installation
-- Install firefox's geckodriver from the following link: https://github.com/mozilla/geckodriver/releases. Click here for instructions: https://stackoverflow.com/a/48353628.
+- Install firefox's geckodriver from the following link: https://github.com/mozilla/geckodriver/releases. Click here for instructions: https://askubuntu.com/a/871077.
 - Then install the project and it's dependencies using the following commands:
 ```
 git clone https://github.com/danzilberdan/WAJoin.git
