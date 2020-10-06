@@ -1,9 +1,11 @@
 # WAJoin
 Currently WhatsApp group size limit is still only 256 users. What if you wanted to join a full group?
-WAJoin will let you join full whatsapp groups by waiting for the exact moment another user exits the group and then automatically replacing him.
+WAJoin will let you join full WhatsApp groups by waiting for the exact moment another user exits the group and then automatically replacing him.
 WAJoin works with browser automation using Selenium.
 
 ## Installation
+- Install firefox's geckodriver from the following link: https://github.com/mozilla/geckodriver/releases.
+- Then install the project and it's dependencies using the following commands:
 ```
 git clone https://github.com/danzilberdan/WAJoin.git
 cd WAJoin
