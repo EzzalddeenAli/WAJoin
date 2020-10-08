@@ -20,8 +20,15 @@ python3 wajoin.py https://chat.whatsapp.com/GfDjd5847fjgKJSHRK749f
 ```
 Then a Browser window will appear with a QR code for WhatsApp Web. Scan the link with your phone and the script should start.
 
-## Languages
+## Limited Language Support
 Currently the code only supports English and Hebrew.
-Support for more countries should be implemented.
+Support for more languages should be implemented.
 Even better will be to implement the functionality without relying on the 'Join' text of the button.
 I will happily accept contributions :smile:
+
+### Solution
+If your WhatsApp is in a different language, change it temporarily.
+1. Open WhatsApp
+2. Tap More options > Settings > Chats > App Language.
+3. Choose English.
+4. Now the script should work.
