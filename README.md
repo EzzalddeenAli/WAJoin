@@ -22,7 +22,7 @@ Then a Browser window will appear with a QR code for WhatsApp Web. Scan the link
 
 ## Limited Language Support
 Currently the code only supports English and Hebrew.
-Support for more countries should be implemented.
+Support for more languages should be implemented.
 Even better will be to implement the functionality without relying on the 'Join' text of the button.
 I will happily accept contributions :smile:
 
