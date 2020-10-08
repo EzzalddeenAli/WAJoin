@@ -5,32 +5,14 @@ from datetime import datetime
 import traceback
 import threading
 import re
+import gzip
 
 import click
 import selenium.webdriver
 import selenium.common.exceptions
-
-
-def try_link(driver, link):
-    driver.get(link)
-    driver.maximize_window()
-    
-    initial_time = datetime.now()
-
-    while True:
-        click.echo('Searching for join button.')
-        if (datetime.now() - initial_time).seconds > 20:
-            return False
-        join_group_buttons = driver.find_elements_by_xpath("//*[contains(text(), 'הצטרף') or contains(text(), 'join') or contains(text(), 'Join')]")
-        if join_group_buttons:
-            click.echo('V')
-            for join_group_button in join_group_buttons:
-                time.sleep(2)
-                join_group_button.click()
-                return True
-        else:
-            click.echo('X')
-        time.sleep(0.5)
+import seleniumwire.webdriver
+import lxml.html
+import lxml.html.builder
 
 
 @click.argument('link')
@@ -50,7 +32,7 @@ def main(link):
 
     click.echo('Starting...')
 
-    driver = selenium.webdriver.Firefox()
+    driver = seleniumwire.webdriver.Firefox(seleniumwire_options={'custom_response_handler': inject})
     while True:
         success = False
         try:
@@ -70,5 +52,61 @@ def main(link):
             time.sleep(sleep_interval)
 
 
+def try_link(driver, link):
+    driver.get(link)
+    time.sleep(10000)
+    driver.maximize_window()
+    
+    initial_time = datetime.now()
+
+    while True:
+        click.echo('Searching for join button.')
+        if (datetime.now() - initial_time).seconds > 20:
+            return False
+        join_group_buttons = driver.find_elements_by_xpath("//*[contains(text(), 'הצטרף') or contains(text(), 'join') or contains(text(), 'Join')]")
+        if join_group_buttons:
+            for join_group_button in join_group_buttons:
+                time.sleep(2)
+                try:
+                    join_group_button.click()
+                except selenium.common.exceptions.StaleElementReferenceException as e:
+                    click.echo('Failed to click on the button that was found :(')
+                else:
+                    click.echo('Clicked the join button :)')
+                return True
+        else:
+            click.echo('Did not find any join button to click :(')
+        time.sleep(0.5)
+
+
+INJECTED_SCRIPT = lxml.html.builder.SCRIPT('''
+
+console.log('Running injected script.')
+
+const originalSetItem = window.localStorage.setItem
+const newSetItem = function (key, value) {
+    if (key === 'WALangPref') {
+        value = 'he'
+    }
+    originalSetItem.apply(localStorage, arguments)
+}
+window.localStorage.__proto__.setItem = newSetItem
+
+''')
+
+
+def inject(req, req_body, res, res_body):
+    if res.headers.get_content_subtype() != 'html' or res.status != 200:
+        return
+        
+    # res.headers['wa_lang_pref'] = 'he'
+    
+    parsed_html = lxml.html.fromstring(gzip.decompress(res_body))
+    
+    parsed_html.head.insert(0, INJECTED_SCRIPT)
+    return gzip.compress(lxml.html.tostring(parsed_html))
+
+
 if __name__ == '__main__':
     main()
+
