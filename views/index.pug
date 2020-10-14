@@ -1,0 +1,22 @@
+extends base
+
+block stylesheets
+  link(rel='stylesheet', href='/static/css/index.css')
+
+block scripts
+  script(src='static/js/index.js')
+
+block content
+  .join-container
+    .join-header
+      .card
+        .card-content
+          span.card-title Welcome To WAJoin!
+          p Join full WhatsApp groups with powerfull automation. Be the first to enter a group by waiting for someone else to exit the group. When someone will exit, WAJoin will instantly command WhatsApp to join the group.
+    .start-container
+      .input-container
+        .input-field.col.s6
+          input#link.validate(placeholder='https://chat.whatsapp.com/.....' type='text')
+          label(for='link') WhatsApp Link
+
+        a.waves-effect.waves-light.btn-large(onclick='submitGroupLink()') Enter Full Group

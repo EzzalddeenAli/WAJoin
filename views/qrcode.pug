@@ -1,0 +1,44 @@
+extends base
+
+block stylesheets
+  link(rel='stylesheet', href='/static/css/qrcode.css')
+
+block scripts
+  script(src='static/js/qrcode.js')
+
+block content
+  .qr-container#qr-container
+    .loading-container
+      .qr-image-container
+        img(src='/static/images/qrcode.png')
+      .progress
+        .indeterminate
+
+    .qr-code-container#qr-code-container(hidden='')
+      .qr-header
+        .details
+          h4 Scan in WhatsApp
+          p 1. Open Whatsapp on your phone
+          p 2. Tap Menu or Settings and select WhatsApp Web
+          p 3. Point your phone to this screen to capture the code
+        img#qr-code
+      video(width='400' controls='')
+        source(src='https://web.whatsapp.com/whatsapp-webclient-login_a0f99e8cbba9eaa747ec23ffb30d63fe.mp4' type='video/mp4')
+
+    .running-container#running-container(hidden='')
+      .exit-header
+        a.btn-floating.btn-large.waves-effect.waves-light.grey(onclick='closesuccess()')
+          i.material-icons.medium close
+      .running-text-container
+        h4 Trying to join the group...
+        p1 Let it run for a day or two until someone will exit the group.
+        .warn
+          h6 Do not open WhatsApp Web in another browser! Otherwise WAJoin will not work.
+        img(src='static/images/joke.gif')
+
+    .success-container#success-container(hidden='')
+      .exit-header
+        a.btn-floating.btn-large.waves-effect.waves-light.grey(onclick='closesuccess()')
+          i.material-icons.medium close
+      .success-text-container
+        h4 Successfully Joined the Group!

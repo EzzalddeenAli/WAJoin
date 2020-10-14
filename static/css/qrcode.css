@@ -1,0 +1,118 @@
+
+.qr-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-container img {
+  width: 70px;
+  -webkit-filter: invert(100%); /* Safari/Chrome */
+  filter: invert(100%);
+  -webkit-animation: rotation 3s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+  from {
+		-webkit-transform: rotate(0deg);
+  }
+  to {
+	   -webkit-transform: rotate(359deg);
+  }
+}
+
+.qr-image-container {
+  margin-bottom: 20px;
+}
+
+.qr-code-container img {
+  width: 250px;
+}
+
+.details {
+  text-align: left;
+}
+
+.qr-code-container,.running-container {
+  color: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.qr-code-container {
+  justify-content: space-around;
+}
+
+.qr-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.qr-header * {
+  margin: 10px;
+}
+
+[hidden] {
+  display:none !important;
+}
+
+.running-text-container * {
+  margin: 5px;
+}
+
+.warn {
+  background-color: #ed3b5f;
+  border-radius: 500px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.success-container, .running-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  width: -moz-available;          /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+  width: fill-available;
+  color: white;
+}
+
+.exit-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  width: -moz-available;          /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+  width: fill-available;
+}
+
+.exit-header a {
+  margin-right: 7px;
+  margin-top: 7px;
+}
+
+.success-text-container, .running-text-container {
+  text-align: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

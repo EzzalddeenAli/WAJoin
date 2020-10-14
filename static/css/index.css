@@ -1,0 +1,57 @@
+.join-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.join-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  color: white;
+  padding: 5px;
+}
+
+.card {
+  background-color: #1c1f26;
+  color: white;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 20px;
+
+  -webkit-box-shadow: -1px 1px 28px -3px rgba(0,0,0,0.77);
+  -moz-box-shadow: -1px 1px 28px -3px rgba(0,0,0,0.77);
+  box-shadow: -1px 1px 28px -3px rgba(0,0,0,0.77);
+}
+
+.card-content span {
+  font-weight: 500 !important;
+}
+
+.start-container {
+  flex: 1;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+}
+
+.input-container {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-container input {
+  color: white;
+}
+
+.input-container a {
+  border-radius: 1000px;
+}

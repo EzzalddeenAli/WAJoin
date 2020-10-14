@@ -1,0 +1,45 @@
+html, body {
+    height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #475570;
+}
+
+nav {
+  background-color: #48c781;
+}
+
+.base-header {
+  text-align: center;
+}
+
+.text-wrapper {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-right: 30px;
+  padding-left: 30px;
+  color: white;
+  background-color: #48c781;
+  border-radius: 1000px;
+}
+
+.app {
+  flex: 1;
+  display: flex;
+  background-image: url("/static/images/whatsapp-background.jpg");
+  background-blend-mode: multiply;
+  background-color: #303642;
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+
+  border-radius: 15px;
+
+  -webkit-box-shadow: inset 10px 10px 42px -8px rgba(0,0,0,0.74);
+  -moz-box-shadow: inset 10px 10px 42px -8px rgba(0,0,0,0.74);
+  box-shadow: inset 10px 10px 42px -8px rgba(0,0,0,0.74);
+}
