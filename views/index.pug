@@ -2,21 +2,79 @@ extends base
 
 block stylesheets
   link(rel='stylesheet', href='/static/css/index.css')
+  link(rel='stylesheet', href='/static/css/whatsapp.css')
 
 block scripts
   script(src='static/js/index.js')
 
 block content
-  .join-container
-    .join-header
-      .card
-        .card-content
-          span.card-title Welcome To WAJoin!
-          p Join full WhatsApp groups with powerfull automation. Be the first to enter a group by waiting for someone else to exit the group. When someone will exit, WAJoin will instantly command WhatsApp to join the group.
-    .start-container
-      .input-container
-        .input-field.col.s6
-          input#link.validate(placeholder='https://chat.whatsapp.com/.....' type='text')
-          label(for='link') WhatsApp Link
+  .header-container
+    .top-title
+      h3 WAJoin
+    .logo-header.middle
+      .header-title.center-table
+        h5 "A good man waits for an invitation. A great man uses WAJoin."
+      .logo
+        img(src='/static/images/logo.png')
+    .start-container.middle
+      .input-field.col.s6
+        input#link.validate(placeholder='https://chat.whatsapp.com/.....' type='text')
+        label(for='link')
+          | WhatsApp Link
 
-        a.waves-effect.waves-light.btn-large(onclick='submitGroupLink()') Enter Full Group
+      a.waves-effect.waves-light.btn-large.rounded(onclick='submitGroupLink()')
+        | Enter Full Group
+  .description-section
+    .description-grid.middle
+      .description-item
+        img.icon(src='/static/images/group-chat.svg')
+        h6 Join full WhatsApp Groups
+        p WAJoin will wait for the first group member to leave. Then, it will instantly get you inside the group.
+      .description-item
+        img.icon(src='/static/images/robot.svg')
+        h6 Using Advanced Automation
+        p We use advanced web automation technologies to make all of this work.
+
+  .chat-container.middle
+    .msg
+      .bubble
+        .txt
+          span.name Mike
+          span.timestamp 10:20 pm
+          span.message
+            | Hey man can I join your study group? 🙏
+        .bubble-arrow
+    .msg
+      .bubble.alt
+        .txt
+          span.timestamp 10:22 pm
+          p.message Sure
+        .bubble-arrow.alt
+    .msg
+      .bubble.alt
+        .txt
+          span.timestamp 10:22 pm
+          p.message https://chat.whatsapp.com/4J9e9n5QEw8CbbitkAMhhj
+        .bubble-arrow.alt
+    .msg
+      .bubble
+        .txt
+          span.name Mike
+          span.timestamp 10:23 pm
+          span.message
+            | Such a bummer. the group is full 😫
+        .bubble-arrow
+    .msg
+      .bubble.alt
+        .txt
+          span.timestamp 10:23 pm
+          p.message.follow Just use WAJoin. You will get inside in no time!
+        .bubble-arrow.alt
+    .msg
+      .bubble
+        .txt
+          span.name Mike
+          span.timestamp 10:23 pm
+          span.message
+            | OMG! It worked man 😮
+        .bubble-arrow

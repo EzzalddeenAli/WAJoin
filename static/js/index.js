@@ -26,6 +26,9 @@ function submitGroupLink() {
     return
   }
 
+  M.toast({html: 'This site is in development. The feature will soon be added.'})
+  return
+
   const currentUniqueCode = localStorage.getItem('uniqueCode')
   let uniqueCode
   if (currentUniqueCode) {

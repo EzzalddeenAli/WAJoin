@@ -1,45 +1,28 @@
-html, body {
-    height: 100%;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  background-color: #475570;
-}
-
-nav {
-  background-color: #48c781;
-}
-
-.base-header {
-  text-align: center;
-}
-
-.text-wrapper {
-  display: inline-block;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-right: 30px;
-  padding-left: 30px;
-  color: white;
-  background-color: #48c781;
+.rounded {
   border-radius: 1000px;
 }
 
-.app {
-  flex: 1;
-  display: flex;
+body {
+  background-color: #475570;
+  background-color: #475570;
   background-image: url("/static/images/whatsapp-background.jpg");
   background-blend-mode: multiply;
-  background-color: #303642;
-  margin-right: 30px;
-  margin-left: 30px;
-  margin-bottom: 30px;
+}
 
-  border-radius: 15px;
+nav {
+  /*background-color: #48c781;*/
+  background-color: rgba(0,0,0,0);
+  box-shadow: none;
+}
 
-  -webkit-box-shadow: inset 10px 10px 42px -8px rgba(0,0,0,0.74);
-  -moz-box-shadow: inset 10px 10px 42px -8px rgba(0,0,0,0.74);
-  box-shadow: inset 10px 10px 42px -8px rgba(0,0,0,0.74);
+.app {
+  /*background-image: url("/static/images/whatsapp-background.jpg");
+  background-blend-mode: multiply;*/
+}
+
+@media only screen and (min-width: 768px) {
+  .middle {
+    max-width: 800px;
+    margin: 0 auto;
+  }
 }
