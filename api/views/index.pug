@@ -9,9 +9,20 @@ block scripts
 
 block content
   .header-container
-    .top-title
-      h3 WAJoin
-      img(src='/static/images/logo.png')
+    .top-bar
+      .top-title
+        h3 WAJoin
+        img(src='/static/images/logo.png')
+      if loggedIn
+        .user-badge-container
+          a.user-badge.waves-effect(href='/app')
+            i.material-icons home
+            p #{chatName}
+      else
+        .user-badge-container
+          a.user-badge.waves-effect(href='/auth/google')
+            i.material-icons account_circle
+            p Sign In
     .logo-header.middle
       .header-title.center-table
         h5 "A good man waits for an invitation. A great man uses WAJoin."
@@ -40,7 +51,7 @@ block content
     .msg
       .bubble
         .txt
-          span.name Mike
+          span.name #{chatName}
           span.timestamp 10:20 pm
           span.message
             | Hey man can I join your study group? 🙏
@@ -60,7 +71,7 @@ block content
     .msg
       .bubble
         .txt
-          span.name Mike
+          span.name #{chatName}
           span.timestamp 10:23 pm
           span.message
             | Such a bummer. the group is full 😫
@@ -74,13 +85,13 @@ block content
     .msg
       .bubble
         .txt
-          span.name Mike
+          span.name #{chatName}
           span.timestamp 10:23 pm
           span.message
             | OMG! It worked man 😮
         .bubble-arrow
   .give-a-try
-    a.waves-effect.waves-light.btn-large.rounded.dark-button()
+    a.waves-effect.waves-light.btn-large.rounded.dark-button
       | give wajoin a try
   .end
     .credit

@@ -1,0 +1,38 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    networks:
+      - internal
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  pgadmin:
+    image: dpage/pgadmin4
+    volumes:
+      - pgadmin_data:/root/.pgadmin
+    networks:
+      - internal
+
+  joiner:
+    build: joiner/
+    networks:
+      - internal
+    security_opt:
+      - seccomp=./joiner/chrome.json
+
+  api:
+    build: api/
+    networks:
+      - internal
+    environment:
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+      - COOKIE_KEY=${COOKIE_KEY}
+
+volumes:
+  postgres_data:
+  pgadmin_data:
+
+networks:
+  internal:

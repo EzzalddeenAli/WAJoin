@@ -1,0 +1,29 @@
+version: '3'
+services:
+  db:
+    environment:
+      POSTGRES_USER: wajoin
+      POSTGRES_PASSWORD: wajoin
+      POSTGRES_DBNAME: wajoin
+    ports:
+      - "${DB_PORT:-5432}:5432"
+
+  pgadmin:
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+
+  api:
+    environment:
+      - PGUSER=wajoin
+      - PGHOST=db
+      - PGPASSWORD=wajoin
+      - PGDATABASE=wajoin
+      - PGPORT=5432
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./api:/usr/src/app
+    command: nodemon index.js
